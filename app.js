@@ -4,18 +4,27 @@ jQuery(function($) {
 	var ViewModel = function() {
     	var self = this;
 
-    	self.firstName = ko.observable();
-    	self.lastName = ko.observable();
- 		self.fullName = ko.computed(function() {
-        	// Knockout tracks dependencies automatically. It knows that fullName depends on firstName and lastName, because these get called when evaluating fullName.
-        	return this.firstName() + " " + this.lastName();
-    	}, this);
+    	self.timeline = ko.observableArray();
+
 		
-		self.update = function() {
-    		$.getJSON("https://api.twitter.com/1/statuses/user_timeline.json", { screen_name: 'emerson_soares', count: 1 } ,function(data){
-    			console.log(data);
-    		});
-    	};
+		self.updateStream = function() {
+			$.ajax({
+      			dataType: 'jsonp'
+      			,url: 'https://api.twitter.com/1/statuses/user_timeline.json'
+      			,data: { screen_name: 'emerson_soares', count: 1 }
+      			,success: function(json) {
+         			$.each(json, function(i, tweet) {
+         				console.log(tweet);
+         				self.timeline.push({ tweet : tweet });
+         			});
+      			}
+      			,error: function( jqXHR, textStatus, errorThrown ) {
+         			console.log( 'error: ' + textStatus);
+      			}
+      			,timeout:5000
+      			,retryMax: 2
+   			});
+		};
 	};
  
 	ko.applyBindings(new ViewModel()); // This makes Knockout get to work​​​

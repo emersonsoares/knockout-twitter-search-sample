@@ -16,11 +16,11 @@
 	</style>
 </head>
 <body>
-	<div class='liveExample'>   
-    	<p>First name: <input data-bind='value: firstName' /></p> 
-    	<p>Last name: <input data-bind='value: lastName' /></p> 
-    	<h2>Hello, <span data-bind='text: fullName'> </span>!</h2>  
-    	<button data-bind='click: update' id="update">Update</button>
-	</div>​
+	<div data-bind='foreach: timeline'>   
+    	<p data-bind='text: tweet.text'></p> 
+    	<p data-bind='text: tweet.created_at'></p> 
+    	<p data-bind='text: tweet.created_at'></p> 
+    </div>​
+    <button data-bind='click: updateStream' id="update">Update</button>
 </body>
 </html>
