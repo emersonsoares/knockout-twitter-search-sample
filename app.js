@@ -4,9 +4,7 @@ jQuery(function($) {
         var self = this;
 
         self.query = ko.observable();
-
         self.tweets = ko.observableArray();
-
         self.currentPage = ko.observable(1);
 
         self.searchTweets = function() {
@@ -35,13 +33,15 @@ jQuery(function($) {
                 ,retryMax: 2
             });
         };
-
-        $(window).scroll(function () {
-            if ($(this).height() + $(this).scrollTop() == $(document).height()) {
-                self.getTweets(self.query, self.currentPage() + 1);
-            }
-        });
     };
  
-    ko.applyBindings(new TwitterViewModel());
+    var viewModel = new TwitterViewModel();
+    ko.applyBindings(viewModel);
+
+    $(window).scroll(function () {
+        if ($(this).height() + $(this).scrollTop() == $(document).height()) {
+            viewModel.getTweets(viewModel.query, viewModel.currentPage() + 1);
+        }
+    });
+
 });
