@@ -18,7 +18,7 @@
                     <a class="brand" href="#">Knockout Twitter Sample</a>
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li><a href="#">Home</a></li>
+                            <li><a href="http://emersonsoares.me">emersonsoares.me</a></li>
                         </ul>
                         <form class="navbar-search pull-right">
                             <input data-bind="value: query, event: { change: searchTweets }" type="text" class="search-query" placeholder="Search">
