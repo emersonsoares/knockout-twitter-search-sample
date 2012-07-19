@@ -20,9 +20,9 @@
                         <ul class="nav">
                             <li><a href="http://emersonsoares.me">emersonsoares.me</a></li>
                         </ul>
-                        <form class="navbar-search pull-right">
+                        <div class="navbar-search pull-right">
                             <input data-bind="value: query, event: { change: searchTweets }" type="text" class="search-query" placeholder="Search">
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
