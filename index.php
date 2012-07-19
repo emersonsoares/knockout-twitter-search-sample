@@ -36,9 +36,10 @@
                             <blockquote>
                                 <span data-bind="text: tweet"></span>
                             </blockquote>
-                            <h5 class="alert-heading">
+                            <h5 class="alert-heading span2">
                                 @<i data-bind="text: user"></i>
                             </h5>
+							<h6 data-bind="text: created_at"></h6>
                         </div>
                         <!-- /ko -->
                     </div>

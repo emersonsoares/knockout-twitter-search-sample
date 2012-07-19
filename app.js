@@ -21,7 +21,8 @@ jQuery(function($) {
                     $.each(json.results, function(i, current){
                         self.tweets.push({ 
                             tweet: current.text,
-                            user: current.from_user
+                            user: current.from_user,
+							created_at: current.created_at
                         });
                     });
                     self.currentPage(json.page);
